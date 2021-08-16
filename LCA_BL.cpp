@@ -1,7 +1,7 @@
 int N=100005,logg=20;
 vector<vector<int>> adj(N),lca(N,vector<int>(logg+1));
 vector<int> level(N);
-// Initialize level[] = 0 , lca[][] = -1
+// Initialize level[] = 0 , lca[][] = -1 
 
 void dfs(int n,int par)
 {
