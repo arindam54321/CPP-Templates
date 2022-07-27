@@ -45,4 +45,25 @@ public:
             return min(left,right);
         }
     }
+    
+    void update(int ind, int pos, int low, int high, int val) {
+    	if (low == high && pos == low) {
+    		seg[ind] = val;
+    		a[pos] = val;
+    		return;
+    	} if (pos < low || pos > high) {
+    		return;
+    	}
+ 
+    	int mid = (low + high) / 2;
+    	if (pos <= mid) {
+    		update(2 * ind + 1, pos, low, mid, val);
+    	} else {
+    		update(2 * ind + 2, pos, mid + 1, high, val);
+    	}
+        
+        // depends on question
+        seg[i] = min(seg[i * 2 + 1], seg[i * 2 + 2]);
+    }
+
 };
